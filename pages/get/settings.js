@@ -6,6 +6,6 @@ module.exports = {
         )
         if (!categoryExists) return config.errorPage(req, res, null, 404)
 
-        await config.guildSettings(req, res, false, req.params.category)
+        await config.guildSettingsByCategory(req, res, false, req.params.category)
     }
 }
