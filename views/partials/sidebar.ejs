@@ -217,8 +217,8 @@
                     <span class="nav-link-text ms-1"><%- req?.locales?.partials?.sidebar.pp || "Privacy Policy" %></span>
                     </a>
                 </li>
-                <% if(themeConfig?.sidebar?.length) { %>
-                    <% for (const item of themeConfig?.sidebar) { %>
+                <% if(themeConfig?.sidebar?.items?.length > 0) { %>
+                    <% for (const item of themeConfig?.sidebar?.items) { %>
                         <li class="nav-item">
                             <a class="nav-link <% if(now == item.id){ %>active"<% } else { %>" href='<%- item.link %>'<% } %>>
                                 <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
