@@ -9,10 +9,10 @@ module.exports = function (config, themeConfig) {
                 'The page you are looking for does not exist.'
         } else {
             title = themeConfig?.error?.dbdError?.title || type.toString()
-            subtitle = themeConfig?.error?.dbdError?.subtitle || 'An error occurred'
+            subtitle = themeConfig?.error?.dbdError?.subtitle || 'ERRORE'
             description =
                 themeConfig?.error?.dbdError?.description ||
-                'Please contact us if the issue persists or try again later.'
+                'Si è verificato un errore, se il problema persiste, apri un ticket sul nostro discord.'
         }
 
         if (error) {

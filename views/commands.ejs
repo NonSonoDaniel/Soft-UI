@@ -1,18 +1,4 @@
-<!--
-=========================================================
-* Soft UI Dashboard - v1.0.3
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,14 +55,14 @@
                                             <thead>
                                             <tr>
                                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                    <%- req.locales?.commands?.commandName || "Name" %>
+                                                    <%- req.locales?.commands?.commandName || "Comando" %>
                                                 </th>
                                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                    <%- req.locales?.commands?.commandUsage || "Command Usage" %>
+                                                    <%- req.locales?.commands?.commandUsage || "Utilizzo" %>
                                                 </th>
                                                 <% if(!category.hideDescription) { %>
                                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                        <%- req.locales?.commands?.commandDescription || "Description" %>
+                                                        <%- req.locales?.commands?.commandDescription || "Descrizione" %>
                                                     </th>
                                                 <% } %>
                                                 <% if(!category.hideAlias) { %>

@@ -242,7 +242,7 @@ async function saveChanges() {
 
                     window.location.reload()
                 } else
-                    sweetalert("error", "Failed to save setttings!", 3000)
+                    sweetalert("error", "Errore nel salvataggio delle modifiche!", 3000)
                 return
             }
 
@@ -252,10 +252,10 @@ async function saveChanges() {
                 window.history.pushState({}, "", url)
 
                 window.location.reload()
-            } else sweetalert("success", "Successfully saved setttings!", 3000)
+            } else sweetalert("success", "Modifiche salvate con successo!", 3000)
         }
     } catch (err) {
-        sweetalert("error", "Failed to save setttings!", 3000)
+        sweetalert("error", "Errore nel salvataggio delle modifiche!", 3000)
         console.error(`Error: ${err}`)
     }
 }

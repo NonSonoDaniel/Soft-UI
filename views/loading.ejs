@@ -80,13 +80,13 @@
         <% if(themeConfig.preloader.text){ %>
             <br>
             <div style="text-align: center;<% if(themeConfig.preloader.spinner) { %>margin-top: calc(100vh / 2.7);<% } %>">
-                <h1 class="font-weight-bolder text-primary text-gradient"><span id="stateText">Loading...</span></h1>
+                <h1 class="font-weight-bolder text-primary text-gradient"><span id="stateText">Caricamento...</span></h1>
                 <% if(themeConfig.preloader.spinner) { %>
 
                     <div style="transform: scale(3); padding-top: 30px;">
                         <div style="text-align: center; " class="spinner-border text-primary text-gradient"
                              role="status">
-                            <span class="visually-hidden">Loading...</span>
+                            <span class="visually-hidden">Caricamento...</span>
                         </div>
                         <span id="stateText"></span>
                     </div>
@@ -107,6 +107,7 @@
         const json = await res.json();
         if (json.loading == false && json.success == true) {
             location.href = '<%= `${req.session.r}?swal=logged` || `/?swal=logged` %>';
+            window.close();
         } else if (json.loading == false && json.success == false) {
             location.href = '/?error=' + json.state.error;
         }
@@ -114,8 +115,10 @@
             <% if (req.session.r == "/manage") { %>
             location.href = '<%= `${req.session.r}?swal=logged` || `/?swal=logged` %>';
             <% } else { %>
+                location.href = '<%= `${req.session.r}?swal=logged` || `/?swal=logged` %>';
             window.close();
             <% } %>
+            location.href = '<%= `swal=logged` || `swal=logged` %>';
             document.getElementById('progress').style.width = 100 + '%';
             return;
         }
@@ -124,7 +127,9 @@
             document.getElementById('stateText').innerHTML = json.state.data;
             document.getElementById('progress').style.width = i + '%';
             if (i > 100) {
-                document.getElementById('stateText').innerHTML = "Finishing up...";
+                window.close()
+                location.href = '<%= `/manage?swal=logged` %>';
+                document.getElementById('stateText').innerHTML = "Quasi fatto...";
             }
             i = i + 10;
         } else if (json.loading == false && json.success == false) {
@@ -134,7 +139,7 @@
     }
     setInterval(() => {
         reFetch()
-    }, 300);
+    }, 500);
 </script>
 </body>
 </html>

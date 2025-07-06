@@ -1,7 +1,7 @@
 module.exports = {
-    page: '/privacy-policy',
+    page: '/ehqwuihqhj',
     execute: async (req, res, app, config, themeConfig, info) => {
-        res.render('pp', {
+        res.render('credits', {
             req,
             config,
             themeConfig,

@@ -3,7 +3,7 @@ const fs = require('fs')
 let DBD = require('discord-dashboard')
 
 module.exports = {
-    page: '/debug',
+    page: '/asdaewqeqweaw',
     execute: async (req, res, app, config, themeConfig, info) => {
         /*
                     Do not remove this page.

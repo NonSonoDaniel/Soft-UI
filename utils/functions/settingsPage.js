@@ -38,16 +38,16 @@ module.exports = function (config, themeConfig) {
             }
         }
 
-        if (bot.guilds.cache.get(req.params.id).channels.cache.size < 1) {
-            try {
-                await bot.guilds.cache.get(req.params.id).channels.fetch()
-            } catch (err) { }
+        try {
+            await bot.guilds.cache.get(req.params.id).channels.fetch();
+        } catch (err) {
+            console.error('Errore durante il fetch dei canali:', err);
         }
-
-        if (bot.guilds.cache.get(req.params.id).roles.cache.size < 2) {
-            try {
-                await bot.guilds.cache.get(req.params.id).roles.fetch()
-            } catch (err) { }
+        
+        try {
+            await bot.guilds.cache.get(req.params.id).roles.fetch();
+        } catch (err) {
+            console.error('Errore durante il fetch dei canali:', err);
         }
 
         let actual = {}
@@ -245,7 +245,20 @@ module.exports = function (config, themeConfig) {
     //loads only the data of the current categoryId
     config.guildSettingsByCategory = async function (req, res, home, categoryId) {
         if (!req.session.user) return res.redirect('/discord?r=/guild/' + req.params.id)
-
+            const { PrismaClient } = require("@prisma/client")
+            const prisma = new PrismaClient()
+            const ss = await prisma.logs.findUnique({ where: { serverID: req.params.id } });
+            const sss = await prisma.antiNukeSettings.findUnique({ where: { serverID: req.params.id } });
+            const s = await prisma.serverSetup.findUnique({ where: { serverID: req.params.id } });
+            if(!sss) {
+                await prisma.antiNukeSettings.create({ data: { serverID: req.params.id, active: false, action: "ban" } })
+            }
+            if(!ss) {
+                await prisma.logs.create({ data: { serverID: req.params.id, messageCh: null, banCh: null,  kickCh: null, timeoutCh: null, channelsCh: null, rolesCh: null, userCh: null} })
+            }
+            if(!s) {
+                await prisma.serverSetup.create({ data: { serverID: req.params.id, adviseCh: null, roleStaff: null, autoKick: ["null"], autoRole: ["null"], premium: false, premiumUserID: null, roleDanger: null } })
+            }
         let bot = config.bot
         if (!bot.guilds.cache.get(req.params.id)) {
             try {

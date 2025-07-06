@@ -2,6 +2,7 @@ declare module "dbd-soft-ui" {
     import { Express, Request, Response } from "express";
 
     type themeConfig = {
+        storage?: any
         customThemeOptions: {
             index: ({ req, res, config }: {
                 req: Request,
@@ -22,9 +23,8 @@ declare module "dbd-soft-ui" {
                 }
             }>,
         },
-        addons: string[],
         websiteName: string,
-        colorScheme: "dark" | "pink" | "blue" | "red" | "green" | "yellow" | "custom",
+        colorScheme: "dark" | "pink" | "blue" | "red" | "green" | "yellow" | "custom" | "d",
         themeColors?: {
             primaryColor: string,
             secondaryColor: string
@@ -66,18 +66,6 @@ declare module "dbd-soft-ui" {
                 max: number
             }
         },
-        premium: {
-            enabled: boolean,
-            card: {
-                title: string,
-                description: string,
-                bgImage: string,
-                button: {
-                    text: string,
-                    url: string
-                }
-            }
-        },
         preloader: {
             image: string,
             spinner: boolean,
@@ -93,28 +81,6 @@ declare module "dbd-soft-ui" {
         shardspage?: {
             enabled: boolean,
             key: string,
-        },
-        meta: {
-            author: string,
-            owner: string,
-            description: string,
-            ogLocale: string,
-            ogTitle: string,
-            ogImage: string,
-            ogType: string,
-            ogUrl: string,
-            ogSiteName: string,
-            ogDescription: string,
-            twitterTitle: string,
-            twitterDescription: string,
-            twitterDomain: string,
-            twitterUrl: string,
-            twitterCard: string,
-            twitterSite: string,
-            twitterSiteId: string,
-            twitterCreator: string,
-            twitterCreatorId: string,
-            twitterImage: string
         },
         error: {
             error404: {
@@ -135,34 +101,59 @@ declare module "dbd-soft-ui" {
                 login: string
             }
         },
-        blacklisted: {
-            title: string,
-            subtitle: string,
-            description: string,
-            button: {
-                enabled: boolean,
-                text: string,
-                link: string
-            }
-        },
         commands?: [
             {
                 category: string,
-                subTitle: string,
-                categoryId: string,
-                image: string,
                 hideAlias: boolean,
-                hideDescription: boolean,
-                hideSidebarItem: boolean,
                 list: [
                     {
                         commandName: string,
                         commandUsage: string,
                         commandDescription: string,
-                        commandAlias: string
-                    }
+                    },
+                    {
+                        commandName: string,
+                        commandUsage: string,
+                        commandDescription: string,
+                    },
+                    {
+                        commandName: string,
+                        commandUsage: string,
+                        commandDescription: string,
+                    },
                 ]
-            }
+            },
+            {
+                category: string,
+                hideAlias: boolean,
+                list: [
+                    {
+                        commandName: string,
+                        commandUsage: string,
+                        commandDescription: string,
+                    },
+                    {
+                        commandName: string,
+                        commandUsage: string,
+                        commandDescription: string,
+                    },
+                    {
+                        commandName: string,
+                        commandUsage: string,
+                        commandDescription: string,
+                    },
+                    {
+                        commandName: string,
+                        commandUsage: string,
+                        commandDescription: string,
+                    },
+                    {
+                        commandName: string,
+                        commandUsage: string,
+                        commandDescription: string,
+                    },
+                ]
+            },
         ]
 
     }
@@ -501,6 +492,10 @@ declare module "dbd-soft-ui" {
      * @see [utils/formtypes](./utils/formtypes.js).
      */
     export interface FormTypes {
+        multiRow: (fields: Record<string, any>[]) => {
+            type: string,
+            fields: Record<string, any>[]
+        },
         spacer: (themeOptions: Record<string, any>) => {
             type: string,
             themeOptions: Record<string, any>

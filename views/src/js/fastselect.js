@@ -539,7 +539,7 @@
 
         apiInputName: null, // by default plugin will post input name as query parameter - you can provide custom one here
 
-        noResultsText: "No results found",
+        noResultsText: "Nessun risultato trovato",
         onItemSelect: "follow", // by default plugin follows selected link - other options available are "fillInput" and custom callback - function($item, model, fastsearchApi)
 
         parseResponse: null, // parse server response with your handler and return processed data - function(response, fastsearchApi)
@@ -1308,10 +1308,10 @@
         onItemCreate: null,
         onMaxItemsReached: null,
 
-        placeholder: "Choose option",
-        searchPlaceholder: "Search options",
-        noResultsText: "No results",
-        userOptionPrefix: "Add ",
+        placeholder: "Scegli un'opzione",
+        searchPlaceholder: "Cerca opzione",
+        noResultsText: "Nessun risultato trovato",
+        userOptionPrefix: "Aggiungi",
     }
 
     $.Fastselect = Fastselect

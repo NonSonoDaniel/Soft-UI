@@ -28,7 +28,7 @@ async function npmDashCheck() {
         }
 
         if (failed2 === 0) {
-            const latestVersion = checkArray['dist-tags'].latest
+        /*const latestVersion = checkArray['dist-tags'].latest
             const currentVersion = require('discord-dashboard').version
             if (currentVersion < latestVersion) {
                 allUpdated = false
@@ -36,7 +36,7 @@ async function npmDashCheck() {
             }
             if (!allUpdated) return
             allUpdated = true
-            //else console.log(`${consolePrefix}${'Your version of discord-dashboard is'.cyan} ${'up-to-date'.green}${'!'.cyan}`);
+            //else console.log(`${consolePrefix}${'Your version of discord-dashboard is'.cyan} ${'up-to-date'.green}${'!'.cyan}`);*/
         }
     }
 }
@@ -51,7 +51,7 @@ async function npmThemeCheck() {
         failed++
         console.log(`${consolePrefix}Failed to check NPM for updates. (soft-ui)`);
     }
-
+/*
     if (failed === 0) {
         let checkArray = await fetch(`https://registry.npmjs.org/dbd-soft-ui`)
 
@@ -69,7 +69,7 @@ async function npmThemeCheck() {
             allUpdated = true
             //else console.log(`${consolePrefix}${'Your version of dbd-soft-ui is'.cyan} ${'up-to-date'.green}${'!'.cyan}`);
         }
-    }
+    }*/
 }
 
 exports.update = async () => {

@@ -1,5 +1,5 @@
 module.exports = {
-    page: '/sponsor',
+    page: '/asdaewqeqweaw',
     execute: async (req, res, app, config, themeConfig, info) => {
         res.render('sponsor', {
             req: req,

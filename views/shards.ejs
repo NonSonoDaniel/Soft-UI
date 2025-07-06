@@ -1,18 +1,4 @@
-<!--
-=========================================================
-* Soft UI Dashboard - v1.0.3
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 <%- include('partials/preloader.ejs', {now:'index', req: req}) %>
@@ -98,7 +84,7 @@ function hexToRgbA(hex){
     <!-- Navbar -->
     <%- include('partials/navbar.ejs', {now:'shards'}) %>
     <!-- End Navbar -->
-    <% let image; if (themeConfig.shardspage.backgroundUrl) { image=themeConfig.shardspage.backgroundUrl } else { const images=["curved-1", "curved-2" , "curved-3" , "curved-4" , "curved-5" , "curved-6" , "curved-7"
+    <% let image; if (true) { const images=["curved-1", "curved-2" , "curved-3" , "curved-4" , "curved-5" , "curved-6" , "curved-7"
         , "curved-8" , "curved-9" , "curved-10" , "curved-11" , "curved-12" , "curved-13" , "curved-14"
         , "curved-15" , "curved-16" , "curved-17" , "curved-18" ]; image="/img/curved-images/" + images[Math.floor(Math.random() *
             images.length)]+ ".webp";} %>

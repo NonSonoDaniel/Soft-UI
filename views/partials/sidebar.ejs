@@ -54,7 +54,7 @@
                             </g>
                         </svg>
                     </div>
-                    <span class="nav-link-text ms-1"><%- req?.locales?.partials?.sidebar.dash || "Dashboard" %></span>
+                    <span class="nav-link-text ms-1"><%- req?.locales?.partials?.sidebar.dash || "Informazioni" %></span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -137,7 +137,7 @@
                                 <li class="nav-item ">
                                     <a id="all" class="nav-link glow active_all" href="#">
                                         <span class="sidenav-mini-icon"> A </span>
-                                        <span class="sidenav-normal"> All </span>
+                                        <span class="sidenav-normal"> Tutti </span>
                                     </a>
                                 </li>
                                 <% themeConfig.commands.forEach(category => {
@@ -188,7 +188,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link <% if(now == 'pp'){ %>active"
-                    <% } else { %>" href='/privacy-policy'
+                    <% } else { %>" href='/stafflist'
                     <% } %>
                     >
                     <div

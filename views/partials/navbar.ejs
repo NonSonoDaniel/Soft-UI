@@ -1,11 +1,11 @@
 <%
-let currentPage = "Dashboard";
+let currentPage = "Informazioni";
 if (now) {
     const pages = req?.locales?.partials?.navbar?.pages;
     if (now === 'manage') currentPage = pages?.manage || "Manage Guilds";
     if (now === 'settings') currentPage = pages?.settings || "Manage Guilds";
     if (now === 'commands') currentPage = pages?.commands || "Commands";
-    if (now === 'pp') currentPage = pages?.pp || "Privacy Policy";
+    if (now === 'pp') currentPage = pages?.pp || "Lista Staff S.A.D.I";
     if (now === 'admin') currentPage = pages?.admin || "Admin Panel";
     if (now === 'error') currentPage = pages?.error || "Error";
     if (now === 'credits') currentPage = pages?.credits || "Credits";

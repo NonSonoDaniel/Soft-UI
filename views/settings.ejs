@@ -1,18 +1,4 @@
-<!--
-=========================================================
-* Soft UI Dashboard - v1.0.3
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -229,6 +215,13 @@
                                     <p id="desc" class="mb-0 font-weight-bold text-sm">
                                         <b>Server ID: </b>
                                         <%= guild.id %>
+                                        <b>| Ruoli: </b>
+                                        <%= guild.roles.cache.size %>
+                                        <b>| Canali: </b>
+                                        <%= guild.channels.cache.size %>
+                                        <b>| Boost: </b>
+                                        <%= guild.premiumSubscriptionCount  %>
+                                        
                                     </p>
                                 </div>
                             </div>
